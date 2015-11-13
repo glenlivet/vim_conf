@@ -2,6 +2,8 @@ Disciple
 anderson.vim
 ctrlp.vim
 delimitMate
+emmet-vim
+gruvbox
 neobundle.vim
 neocomplete.vim
 supertab
@@ -9,7 +11,9 @@ unite.vim
 vim-airline
 vim-colors-solarized
 vim-commentary
+vim-dispatch
 vim-easymotion
+vim-ember-cli
 vim-fugitive
 vim-indent-guides
 vim-javascript

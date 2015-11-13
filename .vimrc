@@ -5,8 +5,8 @@ set nocompatible
 
 " ================ General Config ====================
 "
-" set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h20
-set guifont=Monospace:h24
+set gfn=Meslo\ LG\ M\ for\ Powerline\ 14
+" set guifont=Monospace:h24
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
@@ -15,7 +15,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
-colorscheme glenlivet
+set background=dark
 " This makes vim act like all other editors, buffers can
 " " exist in the background without being in a window.
 " " http://items.sjbach.com/319/configuring-vim-right
@@ -168,9 +168,19 @@ NeoBundle 'Shougo/vimproc.vim', {
 			\    },
 			\ }
 
+" expanding abbreviations
+NeoBundle 'mattn/emmet-vim'
+
 " syntax
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
+
+NeoBundle 'alexlafroscia/vim-ember-cli'
+
+NeoBundle 'tpope/vim-dispatch'
+
+" color schemes
+NeoBundle 'morhetz/gruvbox'
 
 call neobundle#end()
 
@@ -194,9 +204,11 @@ let g:syntastic_auto_loc_list=1
 " powerline fonts for airline
 let g:airline_powerline_fonts = 1
 " tabline for airline
-" " let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 "
+let g:ctrlp_working_path_mode=0
 
+let g:gruvbox_italic=1
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -208,3 +220,11 @@ inoremap <C-k> <Esc>O
 inoremap <C-b> <Esc>G$a
 inoremap <C-o> <CR><Esc>O
 inoremap <C-e> <Esc>j$a
+inoremap <C-c> {<CR><Esc>O
+inoremap <C-a> <Esc>ggvG
+nnoremap <C-a> <Esc>ggvG
+inoremap <C-i> <Esc>ggvG=
+
+
+
+colorscheme gruvbox

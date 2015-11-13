@@ -145,8 +145,11 @@ neobundle#begin([{base-path}])			*neobundle#begin()*
 		Initializes neobundle.vim and start neobundle bundles
 		configuration block.
 		{base-path} is where your downloaded plugins will be placed.
-		If {base-path} is omitted, neobundle looks for a "bundle"
-		directory in the default 'runtimepath'.
+
+		If {base-path} is omitted, neobundle looks for "~/.vim/bundle"
+		or "~/.config/nvim/bundle" directory.
+		Note: But recommend you to specify the {base-path}.
+
 		Note: You must not call the function inside a
 		"has('vim_starting')" block.
 		Note: You can use |neobundle#begin()| / |neobundle#end()| block
@@ -580,6 +583,14 @@ COMMANDS 					*neobundle-commands*
 		Note: If you rollbacked the plugin, you cannot update it by
 		|:NeoBundleUpdate| command.  If you want to update it, you
 		must reinstall the plugin by |:NeoBundleReinstall| command.
+
+						*:NeoBundleRemotePlugins*
+:NeoBundleRemotePlugins
+		Load not loaded neovim |:remote-plugin| and execute
+		|:UpdateRemotePlugins| command.
+		It is better than |:UpdateRemotePlugins| for neobundle
+		autoloading feature.
+		Note: It is valid in neovim.
 
 ------------------------------------------------------------------------------
 VARIABLES 					*neobundle-variables*
@@ -1078,6 +1089,10 @@ OPTIONS 					*neobundle-options*
 						*neobundle-options-verbose*
 		verbose		(Number)
 		If set to 1, neobundle will print message when it is sourced.
+
+						*neobundle-options-neovim*
+		neovim		(Number)
+		If set to 1, it is neovim |:remote-plugin|.
 
 				*neobundle-options-install_process_timeout*
 		install_process_timeout (Number)

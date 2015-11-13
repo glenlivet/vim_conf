@@ -1,0 +1,223 @@
+*ember.txt*             Plugin for working with Ember CLI Applications
+
+Author: Alex LaFroscia <alex@lafroscia.com>
+License: Same terms as Vim itself (see |license|)
+
+====================================================================
+CONTENTS                                              *ember-contents*
+
+    1. Settings ............. |ember-settings|
+    2. Commands ............. |ember-commands|
+    3. Bugs ................. |ember-bugs|
+    4. Contributing ......... |ember-contributing|
+    5. Information .......... |ember-info|
+    6. Changelog ............ |ember-changelog|
+    7. Credits .............. |ember-credits|
+
+====================================================================
+Section 1: Settings                                   *ember-settings*
+
+--------------------------------------------------------------------
+Section 1a: Vim Configuration                       *ember-vim-config*
+
+vim-ember-cli will automatically set some Vim configuration, if you
+allow it to.  By default, all configuration changes are enabled, but
+you can choose to turn any configuration change off individually, or
+disable all of them together.
+
+The possible configuration options are listed below, with their
+default values. Any of them can be overwritten in your own Vim
+configuration.
+
+Enable/Disable all configuration                *'g:ember_config_vim'*
+
+        Globally disable any configuration that vim-ember-cli might
+        do automatically. If set to `0`, no configuration will be
+        done.
+>
+        let g:ember_config_vim = 1
+<
+Configure `suffixesadd`               *'g:ember_config_vim_suffixesadd'*
+
+        Globally disable setting `suffixesadd`, which allows the `gf`
+        command to automatically check for a file extension when
+        trying to jump to a the file name under the cursor.  By
+        doing so, it allows `gf` to work with Ember's convention for
+        importing a file without the extension.
+>
+        let g:ember_config_vim_suffixesadd = 1
+<
+====================================================================
+Section 2: Commands                                   *ember-commands*
+
+:EmberGen [type] [name]                              *ember-:EmberGen*
+
+        Generate a new [type] with a file name of [name].  For
+        example, if you ran:
+>
+        :EmberGen controller my-controller
+<
+        You would end up with a new controller called "my-controller",
+        as well as the corresponding test files.
+
+:EmberDestroy [type] [name]                      *ember-:EmberDestroy*
+
+        Destroy the [type] of name [name].  For example, if you ran:
+>
+        :EmberDestroy controller my-controller
+<
+        The controller called "my-controller" would be destroyed, as
+        well as the corresponding test files.
+
+:EmberServe                                        *ember-:EmberServe*
+
+        Run the "ember server" command. You can pass additional
+        arguments just like with the regular CLI. Example:
+>
+        :EmberServe --port 8080
+<
+
+:EmberBuild                                        *ember-:EmberBuild*
+
+        Run the "ember build" command. You can pass additional
+        arguments just like with the regular CLI. Example:
+>
+        :EmberBuild -dev
+<
+
+:EmberTest                                          *ember-:EmberTest*
+
+        Run the tests for the project using "ember test"
+
+        Can also be invoked as
+>
+        :EmberTest!
+<
+        to run the test server instead.
+
+:EmberTestModule                              *ember-:EmberTestModule*
+
+        Runs only the test module for the current file.
+        Requires the current buffer to be a test file, and for the
+        file to have an explicitly defined name, like so:
+>
+        import { moduleForModel, test } from 'ember-qunit';
+
+        moduleForModel('model:example', 'Unit | Model | example', {
+          ...
+        });
+<
+        In this example, the name is 'Unit | Model | example'.
+        This should be set by default, but if not, provide one.
+
+:EmberInstall [addon-name]                       *ember-:EmberInstall*
+
+        Install an Ember addon using "ember install [addon-name]"
+
+:NpmInstall                                        *ember-:NpmInstall*
+
+        Install project dependencies using "npm install"
+
+====================================================================
+Section 3: Bugs                                           *ember-bugs*
+
+If you come across any behavior that doesn't seem expected, or you
+have some suggestions on ways that this plugin can be improved,
+don't hesitate to post a bug report on the Github Issues tracker,
+which you can find here:
+
+https://github.com/alexlafroscia/vim-ember-cli/issues
+
+Please check for an existing bug before filing a new one.  Issues
+with related plugins should be directed to the original authors.
+
+====================================================================
+Section 4: Contributing                           *ember-contributing*
+
+If you're interested in getting involved with the development of
+this plugin, please check out the issue tracker at
+
+https://github.com/alexlafroscia/vim-ember-cli/issues
+
+If you are looking for a feature or want to start on one yourself,
+please get in touch with me so I can make sure that someone else
+hasn't started on the same idea already!
+
+You can check out a list of contributors at |ember-contributors|.
+
+====================================================================
+Section 5: Information                                    *ember-info*
+
+--------------------------------------------------------------------
+Section 5a: Ember CLI
+
+For more information about the Ember CLI tool, check out the docs at
+
+http://www.ember-cli.com
+
+====================================================================
+Section 6: Changelog                                 *ember-changelog*
+
+0.6.1
+  - Fix autocomplete for Handlebars files
+  - Fix :EmberDestroy completing directories in results
+
+0.6.0
+  - Add omnicomplete function in Handlebars files for component
+    and helper names
+
+0.5.1
+  - Fix tab-completing the names of test files
+
+0.5.0
+  - Add vim configuration options
+  - Add ability to use `gf` with Ember's import syntax. Note: does
+    not work with NPM or Bower imports (yet)
+
+0.4.0
+  - Add test setup
+
+0.3.2
+  - Autocomplete directories and file names in generation tab-
+    complete
+  - More robust module name detection. Now works in most cases when
+    a module name isn't explicitly set, and with Acceptance tests.
+
+0.3.1
+  - Fix controller tab-complete offering only directory paths, not
+    files.
+
+0.3.0
+  - Adds :EmberTestModule command for testing a single module
+
+0.2.1
+  - Fix plugin not working on anything other than the first buffer
+
+0.2.0
+  - Dynamically generate list of blueprints
+
+0.1.0
+  - Adds :EmberBuild command
+  - Allows additional options to be passed to the :EmberServe and
+    :EmberBuild commands
+  - Adds better tab completion for directories while using :EmberGen
+
+0.0.2
+  - Adds :EmberServe command
+
+0.0.1
+  - Basic :Ember____ commands with auto-completion
+
+====================================================================
+Section 7: Credits                                     *ember-credits*
+
+Contributors (chronological):                     *ember-contributors*
+
+  - Alex LaFroscia
+
+Inspiration:
+
+  - Tim Pope (rails-vim) https://github.com/tpope/vim-rails
+  - Fatih Arslan (vim-go) https://github.com/fatih/vim-go
+
+vim:tw=78:ts=8:ft=help:norl:

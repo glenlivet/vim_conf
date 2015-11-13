@@ -286,13 +286,13 @@ hi Underlined     ctermfg=8 gui=underline guifg=#7f7f7f
 hi Ignore         ctermfg=8 guifg=#7f7f7f
 hi Error          term=reverse gui=reverse ctermfg=125 ctermbg=7 guifg=#af005f guibg=#e5e5e5
 hi Todo           term=standout ctermfg=0 ctermbg=11 gui=bold guifg=#000000 guibg=#ffff00
-hi String         ctermfg=170 guifg=#87d700
+hi String         ctermfg=228 guifg=#87d700
 hi Character      ctermfg=228 guifg=#ffff87
 hi Number         ctermfg=129 guifg=#af00ff
 hi Boolean        ctermfg=112 guifg=#8700af
 hi Float          ctermfg=141 guifg=#af87ff
 hi Function       ctermfg=288 guifg=#005faf
-hi Conditional    ctermfg=203 gui=bold guifg=#af0000
+hi Conditional    ctermfg=202 gui=bold guifg=#af0000
 hi Repeat         ctermfg=124 gui=bold guifg=#af0000
 hi Label          ctermfg=228 guifg=#ffff87
 hi Operator       ctermfg=214 guifg=#ffaf00
@@ -310,8 +310,8 @@ hi SpecialChar    ctermfg=208 gui=bold guifg=#ff8700
 hi Delimiter      ctermfg=245 guifg=#8a8a8a
 hi SpecialComment ctermfg=66 gui=bold guifg=#5f8787
 hi Debug          ctermfg=138 gui=bold guifg=#af8787
-hi Normal         ctermfg=230 guifg=#ffffd7 guibg=#121212
-hi Identifier     cterm=none term=none ctermfg=228 guifg=#ffff87
+hi Normal         ctermfg=230 ctermbg=235 guifg=#ffffd7 guibg=#121212
+hi Identifier     cterm=none term=none ctermfg=210 guifg=#ffff87
 hi clear Cursor
 hi Cursor         ctermbg=26 ctermfg=7 guifg=#e5e5e5 guibg=#005fd7
 
